@@ -23,7 +23,9 @@ RUN curl -o joomla.zip -SL https://github.com/joomla/joomla-cms/releases/downloa
 	&& mkdir /usr/src/joomla \
 	&& unzip joomla.zip -d /usr/src/joomla \
 	&& rm joomla.zip \
-	&& chown -R www-data:www-data /usr/src/joomla
+	&& chown -R www-data:www-data /usr/src/joomla \
+	&& curl -o kickstart.zip -SL https://www.akeebabackup.com/download/akeeba-kickstart/5-0-0/kickstart-core-5-0-0-zip.zip \
+	&& unzip kickstart.zip -d /usr/src/joomla
 
 # Copy init scripts and custom .htaccess
 COPY docker-entrypoint.sh /entrypoint.sh
